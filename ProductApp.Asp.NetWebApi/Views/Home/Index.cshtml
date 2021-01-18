@@ -1,0 +1,179 @@
+﻿@section Scripts {
+    @Scripts.Render("~/Scripts/Skripta.js")
+}
+<br />
+
+
+
+<div class="container">
+    <br />
+
+    <div class="row">
+        <h3  id="info" style="text-align:center;background-color:cornflowerblue;">User is not logged in!</h3>
+        <br />
+        <button class="btn btn-primary" style="background-color:forestgreen; margin-left:30%" id="regButt"> Register </button>
+        <button class="btn btn-primary" style="background-color:blue; margin-left:23%" id="logButt"> Login </button>
+        <button id="logOutButt" class="btn btn-primary" style="display:none;margin-left:45%; width:100px; background-color:red"> Sign out </button>
+
+    </div>
+
+    <br />
+    <br />
+
+
+
+
+
+    <div class="row">
+
+        <div class="col-sm-3">
+
+        </div>
+
+        <div class="col-sm-8">
+            <form class="form-horizontal" id="logForm" action="/action_page.php" style="display:none">
+                <h3 style="margin-left:30%">Login</h3>
+                <br />
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="email">Email:</label>
+                    <div class="col-sm-6">
+                        <input type="email" class="form-control" id="logEmail" placeholder="Enter email" name="email">
+                    </div>
+                </div>
+                <br />
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="pwd">Password:</label>
+                    <div class="col-sm-6">
+                        <input type="password" class="form-control" id="logPass" placeholder="Enter password" name="pwd">
+                    </div>
+                </div>
+                <br />
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button class="btn btn-default" type="submit" style="width:100px;margin-right:12%; background-color:cornflowerblue"> Login </button>
+                        <button id="back" class="btn btn-default" style=" width:100px">Back</button>
+                    </div>
+                </div>
+            </form>
+
+
+            <form class="form-horizontal" id="regForm" action="/action_page.php" style="display:none">
+                <h3 style="margin-left:18%">Registration</h3>
+                <br />
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="email">Email:</label>
+                    <div class="col-sm-6">
+                        <input type="email" class="form-control" id="regEmail" placeholder="Enter email" name="email">
+                    </div>
+                </div>
+                <br />
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="pwd">Password:</label>
+                    <div class="col-sm-6">
+                        <input type="password" class="form-control" id="regPass" placeholder="Enter password" name="pwd">
+                    </div>
+                </div>
+                <br />
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="pwd">Password:</label>
+                    <div class="col-sm-6">
+                        <input type="password" class="form-control" id="regPass1" placeholder="Enter password" name="pwd">
+                    </div>
+                </div>
+                <br />
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button class="btn btn-default" type="submit" style="width:100px;margin-right:12%; background-color:cornflowerblue">Register</button>
+                        <button id="back1" class="btn btn-default" style=" width:100px">Back</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+
+    <br />
+    <br />
+
+    <div class="row">
+        <div id="data" style="text-align:center">
+        </div>
+    </div>
+    <br />
+
+    <div class="row">
+
+        <div class="col-sm-offset-1 col-sm-4">
+            <form class="form-horizontal" method="post" action="post/" id="createForm" style="display:none">
+                <h3 style="text-align:center">Add new product</h3>
+                <br />
+                <div class="form-group">
+                    <label class="control-label col-sm-pull-4">Name:</label>
+                    <div class="col-sm-8" style="float:right">
+                        <input type="text" class="form-control" id="nameCreate" required minlength="2" maxlength="50">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-pull-4">Price:</label>
+                    <div class="col-sm-5" style="float:right">
+                        <input type="number" class="form-control" id="priceCreate" required min="1" max="999999" >
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-pull-4">Production year:</label>
+                    <div class="col-sm-5" style="float:right">
+                        <input type="number" class="form-control" id="yearCreate" required min="2018" max="2021">
+                    </div>
+                </div>
+                
+                <br />
+                <div class="form-group">
+                    <div>
+                        <button type="submit" class="btn btn-default" style="float:left;width:95px;background-color:cornflowerblue">Add</button>
+                        <button  type="reset" class="btn btn-default" style="float:right;width:95px;margin-right:4%">Reset</button>
+                    </div>
+                </div>
+            </form>
+            </div>
+
+        <div class="col-sm-offset-1 col-sm-4">
+            <form class="form-horizontal" method="post" action="post/" id="editForm" style="display:none">
+                <h3 style="text-align:center">Edit product</h3>
+                <br />
+                <div class="form-group">
+                    <label class="control-label col-sm-pull-4">Name:</label>
+                    <div class="col-sm-8" style="float:right">
+                        <input type="text" class="form-control" id="nameEdit" required minlength="2" maxlength="50">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-pull-4">Price:</label>
+                    <div class="col-sm-5" style="float:right">
+                        <input type="number" class="form-control" id="priceEdit" required min="1" max="999999">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-pull-4">Production year:</label>
+                    <div class="col-sm-5" style="float:right">
+                        <input type="number" class="form-control" id="yearEdit" required min="2018" max="2021">
+                    </div>
+                </div>
+
+                <br />
+                <div class="form-group">
+                    <div>
+                        <button type="submit" class="btn btn-default" style="float:left;width:95px;background-color:cornflowerblue">Add</button>
+                        <button id="back2" class="btn btn-default" style="float:right;width:95px;margin-right:4%">Back</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        </div>
+
+
+
+
+
+    </div>
